@@ -120,10 +120,11 @@ def read_and_convert_tostr(file_name_instring, absolute_path):
 pos2016_filtered = read_and_convert_tostr('pos2016', pos_files_path)
 ```
 
-    a. To find the number of hospitals reported in this data, we are considering only the unique values for the FAC_NAME variable.
+    a. To find the number of hospitals reported in this data, we are considering two options. First, we are considering the number of observations in the datasets. But second, we are also considering the unique values for the FAC_NAME variable.
 
 ```{python}
-print('There are', len(pos2016_filtered['FAC_NAME'].unique()), 'hospitals reported in this data.') # There was no nan in this column
+print('If we consider the number of observations, there are', len(pos2016_filtered), 'hospitals reported in the data.\n')
+print('However, if we consider only the unique facility names, there are', len(pos2016_filtered['FAC_NAME'].unique()), 'hospitals reported in this data.') # There was no nan in this column
 ```
 This number doesn't seem to make sense considering the approximation reported in the article from the Kaiser Family Foundation which states that "There are nearly 5,000 short-term, acute care hospitals in the United States.". The number we found is way larger than the 5,000 mentioned.
 
